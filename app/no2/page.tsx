@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-    const mainCursor = useRef(null);
+    const mainCursor = useRef<HTMLDivElement>(null);
     const [msg,setMsg] = useState('Returning')
     const [showMsg,setShowMsg] = useState('hidden')
     const { push } = useRouter();
@@ -16,11 +16,8 @@ export default function Home() {
             const mouseY = clientY;
 
             
-            try{
+            if (mainCursor.current) {
               mainCursor.current.style.transform = `translate3d(${mouseX - mainCursor.current.clientWidth/2}px, ${mouseY - mainCursor.current.clientHeight/2}px, 0)`;
-            }
-            catch(e){
-
             }
             
         
@@ -31,7 +28,7 @@ export default function Home() {
     
     const shot = () => {
 
-      let audio = document.getElementById('gunShot');
+      const audio: HTMLAudioElement = document.getElementById('gunShot') as HTMLAudioElement;
       audio.play();
 
       setShowMsg('block')
