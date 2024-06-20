@@ -4,19 +4,13 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 255,182,193;
+  --background-end-rgb: 255,192,203;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
+  position: relative;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -30,4 +24,95 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@keyframes textMove1 {
+  from {
+    transform: translate(0,0);
+  }
+  to {
+    transform: translate(10%,0);
+  }
+}
+
+@keyframes textMove2 {
+  from {
+    transform: translate(-10%,0);
+  }
+  to {
+    transform: translate(10%,0);
+  }
+}
+
+@keyframes textMove21 {
+  from {
+    transform: translate(0,0);
+  }
+  to {
+    transform: translate(20%,0);
+  }
+}
+
+@keyframes textMove22 {
+  from {
+    transform: translate(-20%,0);
+  }
+  to {
+    transform: translate(20%,0);
+  }
+}
+
+@keyframes textMove31 {
+  from {
+    transform: translate(0,0);
+  }
+  to {
+    transform: translate(7.5%,0);
+  }
+}
+
+@keyframes textMove32 {
+  from {
+    transform: translate(-7.5%,0);
+  }
+  to {
+    transform: translate(7.5%,0);
+  }
+}
+
+@keyframes beatingHeart {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.textAnim1{
+  animation: textMove1 1s linear infinite;
+}
+
+.textAnim2{
+  animation: textMove2 1s linear infinite;
+}
+
+.textAnim21{
+  animation: textMove21 2s linear infinite;
+}
+
+.textAnim22{
+  animation: textMove22 2s linear infinite;
+}
+
+.textAnim31{
+  animation: textMove31 1s linear infinite;
+}
+
+.textAnim32{
+  animation: textMove32 1s linear infinite;
+}
+
+.beatingHeart{
+  animation: beatingHeart 1s linear alternate infinite;
 }
